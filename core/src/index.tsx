@@ -6,8 +6,22 @@ export { FrameContext, useFrame } from './Context';
 
 export interface IFrameProps
   extends React.DetailedHTMLProps<React.IframeHTMLAttributes<HTMLIFrameElement>, HTMLIFrameElement> {
+  /**
+   * The `head` prop is a dom node that gets inserted before the children of the frame.
+   */
   head?: React.ReactNode;
+  /**
+   * The `initialContent` props is the initial html injected into frame.
+   * It is only injected once,
+   * but allows you to insert any html into the frame (e.g. a [`<head>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head) tag, [`<script>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script) tags, etc).
+   * Note that it does not update if you change the prop.
+   *
+   * Defaults to `<!DOCTYPE html><html><head></head><body></body></html>`
+   */
   initialContent?: string;
+  /**
+   * The `mountTarget` attribute is a css selector (`#target`/`.target`) that specifies the child within the initial content of the iframe to be mounted.
+   */
   mountTarget?: string;
 }
 
@@ -33,8 +47,10 @@ const IFrame = forwardRef<HTMLIFrameElement, IFrameProps>(
       return doc?.body;
     };
     const handleLoad = useCallback(() => {
-      // In certain situations on a cold cache DOMContentLoaded never gets called
-      // fallback to an interval to check if that's the case
+      /**
+       * In certain situations on a cold cache DOMContentLoaded never gets called
+       * fallback to an interval to check if that's the case
+       */
       const loadCheck = () => setInterval(() => handleLoad(), 500);
       clearInterval(loadCheck());
       // Bail update as some browsers will trigger on both DOMContentLoaded & onLoad ala firefox
