@@ -1,0 +1,3 @@
+{"total": {"lines":{"total":37,"covered":33,"skipped":0,"pct":89.18},"statements":{"total":41,"covered":35,"skipped":0,"pct":85.36},"functions":{"total":11,"covered":9,"skipped":0,"pct":81.81},"branches":{"total":28,"covered":23,"skipped":0,"pct":82.14},"branchesTrue":{"total":0,"covered":0,"skipped":0,"pct":"Unknown"}}
+,"/home/runner/work/react-iframe/react-iframe/core/src/index.tsx": {"lines":{"total":37,"covered":33,"skipped":0,"pct":89.18},"functions":{"total":11,"covered":9,"skipped":0,"pct":81.81},"statements":{"total":41,"covered":35,"skipped":0,"pct":85.36},"branches":{"total":28,"covered":23,"skipped":0,"pct":82.14}}
+}

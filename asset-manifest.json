@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.020a7543.css",
+    "main.js": "/static/js/main.aa723fa0.js",
+    "refractor-prismjs-vendor.js": "/static/js/refractor-prismjs-vendor.f6dda1cf.js",
+    "react-vendor.js": "/static/js/react-vendor.e1575b27.js",
+    "index.html": "/index.html",
+    "main.020a7543.css.map": "/static/css/main.020a7543.css.map",
+    "main.aa723fa0.js.map": "/static/js/main.aa723fa0.js.map",
+    "refractor-prismjs-vendor.f6dda1cf.js.map": "/static/js/refractor-prismjs-vendor.f6dda1cf.js.map",
+    "react-vendor.e1575b27.js.map": "/static/js/react-vendor.e1575b27.js.map"
+  },
+  "entrypoints": [
+    "static/js/refractor-prismjs-vendor.f6dda1cf.js",
+    "static/js/react-vendor.e1575b27.js",
+    "static/css/main.020a7543.css",
+    "static/js/main.aa723fa0.js"
+  ]
+}
