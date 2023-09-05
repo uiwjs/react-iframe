@@ -96,16 +96,6 @@ jobs:
             
             ${{ steps.changelog.outputs.changelog }}
 
-      # - run: git status
-      # - run: npm install @jsdevtools/npm-publish -g
-      # - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./core/package.json
-
-      # - name: 📦 @uiw/react-layout publish to NPM
-      #   uses: JS-DevTools/npm-publish@v1
-      #   with:
-      #     token: ${{ secrets.NPM_TOKEN }}
-      #     package: ./core/package.json
-
       - run: npm publish --access public
         name: 📦 @uiw/react-iframe to NPM
         working-directory: core
