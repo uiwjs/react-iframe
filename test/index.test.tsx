@@ -1,7 +1,7 @@
 import renderer from 'react-test-renderer';
-import { render, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import IFrame from '../core/src';
+import { render, waitFor, renderHook, act } from '@testing-library/react';
+import IFrame, { useFrame, FrameContext } from '../core/src';
+import React from 'react';
 
 it('renders <IFrame /> test case', () => {
   const component = renderer.create(
@@ -25,4 +25,61 @@ it('renders <IFrame /> test case', async () => {
   await waitFor(() => {
     expect(container.innerHTML).toEqual(`<iframe srcdoc="<!DOCTYPE html><html><head></head><body></body></html>"></iframe>`);
   })
+});
+
+it('renders useFrame test case', async () => {
+  const { result } = renderHook(() => useFrame());
+  act(() => {
+    expect(Object.keys(result.current)).toEqual(["document", "window"]);
+  });
+});
+
+
+it('renders ref test case', async () => {
+  const ref = React.createRef<HTMLIFrameElement>();
+  const { container } = render(
+    <IFrame ref={ref}>
+      <h1>Hello World!</h1>
+    </IFrame>
+  );
+  await waitFor(() => {
+    expect(ref.current instanceof HTMLIFrameElement).toBeTruthy();
+    expect(container.innerHTML).toEqual(`<iframe srcdoc="<!DOCTYPE html><html><head></head><body></body></html>"></iframe>`);
+  })
+});
+
+
+it('renders <IFrame src="https://wangchujiang.com/" /> test case', async () => {
+  const { container } = render(
+    <IFrame src="https://wangchujiang.com/">
+      <h1>Hello World!</h1>
+    </IFrame>
+  );
+  await waitFor(() => {
+    expect(container.innerHTML).toEqual(`<iframe src="https://wangchujiang.com/"></iframe>`);
+  })
+});
+
+
+it('renders <IFrame head="..." /> test case', async () => {
+  const head = (
+    <style>{`body { background: red; }`}</style>
+  );
+  const ref = React.createRef<HTMLIFrameElement>();
+  const { container } = render(
+    <IFrame ref={ref} head={head}>
+      <FrameContext.Consumer>
+        {({ document, window }) => {
+          return (
+            <div>
+              <div>Hello World!</div>
+            </div>
+          )
+        }}
+      </FrameContext.Consumer>
+    </IFrame>
+  );
+  await waitFor(() => {
+    expect(container.innerHTML).toEqual(`<iframe srcdoc="<!DOCTYPE html><html><head></head><body></body></html>"></iframe>`);
+  });
 });
