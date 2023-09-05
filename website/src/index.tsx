@@ -16,6 +16,6 @@ root.render(
     description={pkg.description}
     version={`v${VERSION}`}
   >
-    <Github href="https://github.com/uiwjs/react-monorepo-template" />
+    <Github href={pkg.repository.url} />
   </MarkdownPreviewExample>,
 );
