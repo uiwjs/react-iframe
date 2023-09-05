@@ -1,8 +1,8 @@
 react-iframe
 ===
 
-[![Build & Deploy](https://github.com/uiwjs/react-monorepo-template/actions/workflows/ci.yml/badge.svg)](https://github.com/uiwjs/react-monorepo-template/actions/workflows/ci.yml)
-[![Coverage Status](https://uiwjs.github.io/react-monorepo-template/badges.svg)](https://uiwjs.github.io/react-monorepo-template/coverage/lcov-report/)
+[![Build & Deploy](https://github.com/uiwjs/react-iframe/actions/workflows/ci.yml/badge.svg)](https://github.com/uiwjs/react-iframe/actions/workflows/ci.yml)
+[![Coverage Status](https://uiwjs.github.io/react-iframe/badges.svg)](https://uiwjs.github.io/react-iframe/coverage/lcov-report/)
 
 This component allows you to wrap your entire React application or each component in an [`<iframe>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe).
 
