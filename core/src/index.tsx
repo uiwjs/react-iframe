@@ -1,5 +1,8 @@
 import { useCallback, useEffect, useState, forwardRef, useImperativeHandle } from 'react';
 import { createPortal } from 'react-dom';
+import { FrameContext } from './Context';
+
+export { FrameContext, useFrame } from './Context';
 
 export interface IFrameProps
   extends React.DetailedHTMLProps<React.IframeHTMLAttributes<HTMLIFrameElement>, HTMLIFrameElement> {
@@ -52,11 +55,15 @@ const IFrame = forwardRef<HTMLIFrameElement, IFrameProps>(
     }, [mountNode, handleLoad]);
 
     const renderFrameContents = () => {
+      const doc = getDoc();
       const header = getDoc()?.head;
       const mountTarget = getMountTarget();
+      // @ts-ignore
+      const win = doc?.defaultView || doc?.parentView;
+      const contents = <FrameContext.Provider value={{ document: doc, window: win }}>{children}</FrameContext.Provider>;
       return [
         header && head && createPortal(head, header),
-        mountNode && mountTarget && createPortal(children, mountTarget),
+        mountNode && mountTarget && createPortal(contents, mountTarget),
       ];
     };
     const reProps: IFrameProps = {};

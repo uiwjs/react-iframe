@@ -134,6 +134,57 @@ export default function Demo() {
   );
 }
 ```
+
+## Accessing the iframe's `window` and `document`
+
+The iframe's `window` and `document` may be accessed via the `FrameContext.Consumer` or the useFrame hook.
+
+```tsx mdx:preview
+import React, { useEffect, useState, Fragment } from 'react';
+import IFrame, { FrameContext } from '@uiw/react-iframe';
+
+export default function Demo() {
+  return (
+    <IFrame>
+      <FrameContext.Consumer>
+        {({ document, window }) => {
+          return (
+            <div>
+              <div>Hello World!</div>
+            </div>
+          )
+        }}
+      </FrameContext.Consumer>
+    </IFrame>
+  );
+}
+```
+
+The example with `useFrame` hook:
+
+```tsx mdx:preview
+import React, { useEffect, useState, Fragment } from 'react';
+import IFrame, { useFrame } from '@uiw/react-iframe';
+
+const InnerComponent = () => {
+  // Hook returns iframe's window and document instances from Frame context
+  const { document, window } = useFrame();
+  return (
+    <div>
+      <div>Hello World!</div>
+    </div>
+  );
+};
+
+export default function Demo() {
+  return (
+    <IFrame>
+      <InnerComponent />
+    </IFrame>
+  );
+}
+```
+
 ## Props
 
 ```ts
