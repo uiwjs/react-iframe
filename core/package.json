@@ -1,12 +1,12 @@
 {
-  "name": "@uiw/react-monorepo-template",
-  "version": "1.1.0",
-  "description": "Simple React package development project example template..",
+  "name": "@uiw/react-iframe",
+  "version": "0.0.1",
+  "description": "This component allows you to wrap your entire React application or each component in an iFrame.",
   "author": "Kenny Wong <wowohoo@qq.com>",
-  "homepage": "https://uiwjs.github.io/react-monorepo-template",
+  "homepage": "https://uiwjs.github.io/react-iframe",
   "repository": {
     "type": "git",
-    "url": "https://github.com/uiwjs/react-monorepo-template.git"
+    "url": "https://github.com/uiwjs/react-iframe.git"
   },
   "license": "MIT",
   "main": "./cjs/index.js",
@@ -22,7 +22,7 @@
     "access": "public"
   },
   "keywords": [
-    "react-monorepo-template",
+    "react-iframe",
     "react.js",
     "react",
     "template",
@@ -32,6 +32,7 @@
     "uiw-react",
     "react-component",
     "component",
+    "iframe",
     "components",
     "ui",
     "css",
@@ -47,7 +48,9 @@
     "@babel/runtime": "^7.18.9",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
+    "@types/react-test-renderer": "^18.0.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-test-renderer": "^18.2.0"
   }
 }
