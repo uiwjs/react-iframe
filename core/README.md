@@ -6,6 +6,13 @@ react-iframe
 [![npm version](https://img.shields.io/npm/v/@uiw/react-iframe.svg)](https://www.npmjs.com/package/@uiw/react-iframe)
 
 This component allows you to wrap your entire React application or each component in an [`<iframe>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe).
+## Features
+
+📚 Use Typescript to write, better code hints.  
+📦 Zero dependencies.  
+🐝 Encapsulation based on function components.  
+🍄 Provides comprehensive code test coverage.  
+🌐 Complete official document [demo preview](https://uiwjs.github.io/react-iframe/).  
 
 ## Installation
 
