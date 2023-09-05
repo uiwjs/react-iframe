@@ -129,7 +129,7 @@ export default function Demo() {
 
 ## `src`
 
-The ref prop provides a way to access inner [`<iframe>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe) DOM node.
+Open a URL in an [`<iframe>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe).
 
 ```tsx mdx:preview
 import React, { useEffect, useState, Fragment } from 'react';
