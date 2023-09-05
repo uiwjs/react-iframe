@@ -3,6 +3,7 @@ react-iframe
 
 [![Build & Deploy](https://github.com/uiwjs/react-iframe/actions/workflows/ci.yml/badge.svg)](https://github.com/uiwjs/react-iframe/actions/workflows/ci.yml)
 [![Coverage Status](https://uiwjs.github.io/react-iframe/badges.svg)](https://uiwjs.github.io/react-iframe/coverage/lcov-report/)
+[![npm version](https://img.shields.io/npm/v/@uiw/react-iframe.svg)](https://www.npmjs.com/package/@uiw/react-iframe)
 
 This component allows you to wrap your entire React application or each component in an [`<iframe>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe).
 
