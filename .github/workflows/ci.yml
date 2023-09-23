@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - name: Look Changelog
         uses: jaywcjlove/changelog-generator@main
@@ -29,11 +29,14 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
           registry-url: 'https://registry.npmjs.org'
 
       - run: npm install --unsafe-perm
@@ -96,7 +99,7 @@ jobs:
             
             ${{ steps.changelog.outputs.changelog }}
 
-      - run: npm publish --access public
+      - run: npm publish --access public --provenance
         name: 📦 @uiw/react-iframe to NPM
         working-directory: core
         continue-on-error: true
