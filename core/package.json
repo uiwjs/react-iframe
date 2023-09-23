@@ -1,6 +1,6 @@
 {
   "name": "@uiw/react-iframe",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "This component allows you to wrap your entire React application or each component in an iFrame.",
   "author": "Kenny Wong <wowohoo@qq.com>",
   "homepage": "https://uiwjs.github.io/react-iframe",
