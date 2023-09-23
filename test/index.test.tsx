@@ -83,3 +83,16 @@ it('renders <IFrame head="..." /> test case', async () => {
     expect(container.innerHTML).toEqual(`<iframe srcdoc="<!DOCTYPE html><html><head></head><body></body></html>"></iframe>`);
   });
 });
+
+it('renders <IFrame mountTarget="..." /> test case', async () => {
+  const initialContent = '<!DOCTYPE html><html><head></head><body><h1>i wont be changed</h1><div id="mountHere"></div></body></html>';
+  const { container } = render(
+    <IFrame initialContent={initialContent} mountTarget="#mountHere">
+      <div style={{ fontSize: 32, color: 'red' }}>Hello World!</div>
+    </IFrame>
+  );
+  await waitFor(() => {
+    expect(container.innerHTML).toEqual(`<iframe srcdoc=\"<!DOCTYPE html><html><head></head><body><h1>i wont be changed</h1><div id=&quot;mountHere&quot;></div></body></html>\"></iframe>`);
+  });
+});
+
