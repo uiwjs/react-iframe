@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState, forwardRef, useImperativeHandle } from 'react';
+import { useCallback, useEffect, useState, forwardRef, useImperativeHandle, useMemo, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { FrameContext } from './Context';
 
@@ -46,16 +46,27 @@ const IFrame = forwardRef<HTMLIFrameElement, IFrameProps>(
       }
       return doc?.body;
     };
-    const handleLoad = useCallback(() => {
-      /**
-       * In certain situations on a cold cache DOMContentLoaded never gets called
-       * fallback to an interval to check if that's the case
-       */
-      const loadCheck = () => setInterval(() => handleLoad(), 500);
-      clearInterval(loadCheck());
-      // Bail update as some browsers will trigger on both DOMContentLoaded & onLoad ala firefox
-      if (!iframeLoaded) {
-        setIframeLoaded(true);
+    const evnRef = useRef<React.SyntheticEvent<HTMLIFrameElement, Event>>();
+    const handleLoad = useCallback<(evn: React.SyntheticEvent<HTMLIFrameElement, Event> | Event) => void>(
+      (evn) => {
+        evnRef.current = evn as React.SyntheticEvent<HTMLIFrameElement, Event>;
+        /**
+         * In certain situations on a cold cache DOMContentLoaded never gets called
+         * fallback to an interval to check if that's the case
+         */
+        const loadCheck = () => setInterval(() => handleLoad(evn), 500);
+        clearInterval(loadCheck());
+        // Bail update as some browsers will trigger on both DOMContentLoaded & onLoad ala firefox
+        if (!iframeLoaded) {
+          setIframeLoaded(true);
+        }
+      },
+      [iframeLoaded],
+    );
+
+    useMemo(() => {
+      if (!src && other.onLoad && iframeLoaded) {
+        other.onLoad(evnRef.current!);
       }
     }, [iframeLoaded]);
 

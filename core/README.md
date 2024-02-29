@@ -192,6 +192,34 @@ export default function Demo() {
 }
 ```
 
+## Event
+
+```tsx mdx:preview
+import React, { useEffect, useState, Fragment } from 'react';
+import IFrame, { useFrame } from '@uiw/react-iframe';
+
+const InnerComponent = () => {
+  // Hook returns iframe's window and document instances from Frame context
+  const { document, window } = useFrame();
+  return (
+    <div>
+      <div>Hello World!</div>
+    </div>
+  );
+};
+
+export default function Demo() {
+  const onLoad = (evn) => {
+    console.log("iframe loaded successfully!", evn)
+  }
+  return (
+    <IFrame onLoad={onLoad}>
+      <InnerComponent />
+    </IFrame>
+  );
+}
+```
+
 ## Props
 
 ```ts
