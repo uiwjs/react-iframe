@@ -1,6 +1,6 @@
 {
   "name": "website",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": true,
   "scripts": {
     "start": "kkt start",
@@ -8,7 +8,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@uiw/react-iframe": "1.0.3",
+    "@uiw/react-iframe": "1.0.4",
     "@uiw/react-markdown-preview-example": "^1.5.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
